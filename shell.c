@@ -190,12 +190,12 @@ char * accessHistory(char *buffer,History_Stack *HS)
 {
     int index=atoi(buffer);
     index=index-1;
-    if(index<HS->counter-HS->round || index>=HS->counter)
+    if(index < HS->counter - HS->round || index >= HS->counter)
     {
         return "";
     }
     //char C[COMMAND_LENGTH]="";
-    strcpy(buffer,HS->history[index]);
+    strcpy(buffer,HS->history[(HS->counter - HS->round)+index]);
     return buffer;
 }
 void handle_SIGINT(int Sig)
